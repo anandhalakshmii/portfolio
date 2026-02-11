@@ -20,6 +20,7 @@ export default function Navbar() {
         borderBottom: "1px solid rgba(255,255,255,0.05)"
       }}
     >
+      
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         
         {/* Logo / Name */}
