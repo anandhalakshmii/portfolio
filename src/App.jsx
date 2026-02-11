@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import AnimatedBackground from "./components/AnimatedBackground";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import GetInTouch from "./components/GetInTouch";
