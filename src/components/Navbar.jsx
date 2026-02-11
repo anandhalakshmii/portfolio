@@ -1,108 +1,92 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton
+} from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-import { styles } from "../style";
-import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
-
-const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function Navbar() {
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
+    <AppBar
+      position="fixed"
+      elevation={0}
+      sx={{
+        bgcolor: "rgba(0,0,0,0.85)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(255,255,255,0.05)"
+      }}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        
+        {/* Logo / Name */}
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          sx={{
+            background: "linear-gradient(90deg,#ff2e2e,#ff6b6b)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Anandhalakshmi &nbsp;
-            <span className='sm:block md:block hidden '> | Palanikumar</span>
-          </p>
-        </Link>
+          AP
+        </Typography>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-                      ))}
-            <li className={`font-poppins font-medium cursor-pointer text-[16px]`}>
-              <a href='https://anandhalakshmii.github.io/resume/'> Resume </a>
-            </li>
-        </ul>
+        {/* Navigation Tabs */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Button color="primary" href="#projects">
+            Projects
+          </Button>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
-          />
+          <Button color="primary" href="#experience">
+            Experience
+          </Button>
 
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+          <Button color="primary" href="#contact">
+            Contact
+          </Button>
+
+          {/* Divider Space */}
+          <Box sx={{ width: 20 }} />
+
+          {/* GitHub Icon */}
+          <IconButton
+            href="https://github.com/anandhalakshmii/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: "white",
+              transition: "0.3s",
+              "&:hover": {
+                color: "#ff2e2e",
+                transform: "scale(1.1)"
+              }
+            }}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-                <li className={`font-poppins font-medium cursor-pointer text-[16px]`}>
-                  <a href='https://anandhalakshmii.github.io/resume/'> Resume </a>
-                </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
+            <GitHubIcon />
+          </IconButton>
 
-export default Navbar;
+          {/* LinkedIn Icon */}
+          <IconButton
+            href="https://www.linkedin.com/in/anandhalakshmip/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: "white",
+              transition: "0.3s",
+              "&:hover": {
+                color: "#ff2e2e",
+                transform: "scale(1.1)"
+              }
+            }}
+          >
+            <LinkedInIcon />
+          </IconButton>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
+}

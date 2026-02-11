@@ -1,117 +1,136 @@
-import React from "react";
-import {Tilt} from "react-tilt";
+import { Container, Grid, Typography, Box, Paper } from "@mui/material";
 import { motion } from "framer-motion";
 
-import { styles } from "../style";
-import { services } from "../constants";
-import { SectionWrapper } from "../hoc";
-import {profile} from "../assets"
-import { fadeIn, textVariant, slideIn } from "../utils/motion";
-
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
-
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  </Tilt>
-);
-
-const About = () => {
+export default function About() {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
-    
-      <div className={`hidden md:flex lg:flex xl:flex gap-10 flex-1 sm:block`} >
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-        >
-         Here's more about myself!<br/>I pursued my UG at Thiagarajar College of Engineering, Madurai in B.Tech IT.
-         As a passionate full stack web developer with hands-on experience in Python, MERN Stack, Spring Boot and NextJs, 
-         I am constantly seeking new challenges and opportunities to expand my skillset. I am a quick learner 
-         and thrive in fast-paced collaborative environments where I can apply my problem-solving skills to create efficient and effective 
-         solutions, contributing to the benefit of the society.
-        </motion.p>
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className='xl:h-auto md:h-[550px] h-[350px]'
-        >
-          <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56">
-        <img
-          className="h-full w-full drop-shadow-md rounded-full"
-          src={profile}
-          alt="Profile"
-        />
-        <div className="absolute inset-0 rounded-full border-4 border-transparent animate-border-spin border-t-blue-500 border-r-blue-500"></div>
-       <div className="absolute inset-0 rounded-full border-4 border-transparent animate-border-pulse border-t-blue-500 border-r-blue-500"></div>
-      
-      </div>
-        </motion.div>
-      </div>
-
-      <div className={`flex flex-col items-center gap-10 overflow-hidden  block sm:block md:hidden lg:hidden xl:hidden`}>
-
+    <Container maxWidth="lg" sx={{ mt: 15, mb: 15 }}>
       <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className='xl:flex-1 xl:h-auto md:h-[550px] h-[100px] mt-2'
-        >
-          <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56">
-        <img
-          className="h-full w-full drop-shadow-md rounded-full"
-          src={profile}
-          alt="Profile"
-        />
-        <div className="absolute inset-0 rounded-full border-4 border-transparent animate-border-spin border-t-blue-500 border-r-blue-500"></div>
-       <div className="absolute inset-0 rounded-full border-4 border-transparent animate-border-pulse border-t-blue-500 border-r-blue-500"></div>
-      
-      </div>
-        </motion.div>
-
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          style={{textAlign:'center'}}
-          className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-        >
-         Here's more about myself!<br/>I pursued my UG at Thiagarajar College of Engineering, Madurai in B.Tech IT.
-         As a passionate full stack web developer with hands-on experience in Python, MERN Stack, Spring Boot and NextJs, 
-         I am constantly seeking new challenges and opportunities to expand my skillset. I am a quick learner 
-         and thrive in fast-paced collaborative environments where I can apply my problem-solving skills to create efficient and effective 
-         solutions, contributing to the benefit of the society.
-        </motion.p>
-        
-      </div>
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <Grid container spacing={6} alignItems="center">
           
+          {/* LEFT SIDE */}
+          <Grid item xs={12} md={6}>
+            
+            {/* Small Tag */}
+            <Typography
+              sx={{
+                letterSpacing: 3,
+                color: "primary.main",
+                fontSize: 12,
+                mb: 2
+              }}
+            >
+              DISCOVERY
+            </Typography>
 
-      <div className='mt-20 flex flex-wrap justify-center gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
-      </div>
-    </>
+            {/* Heading */}
+            <Typography
+              variant="h4"
+              sx={{ fontWeight: 800, mb: 4 }}
+            >
+              About{" "}
+              <Box component="span" color="primary.main">
+                The Architect
+              </Box>
+            </Typography>
+
+            {/* Summary Card */}
+            <Paper
+              elevation={6}
+              sx={{
+                p: 4,
+                bgcolor: "background.paper",
+                borderRadius: 3,
+                border: "1px solid rgba(255,46,46,0.1)",
+                lineHeight: 1.8
+              }}
+            >
+              <Typography sx={{ opacity: 0.9 }}>
+                I am a Full Stack Developer with 3+ years of experience delivering 
+                scalable, cloud-integrated web applications end to end. I build 
+                intuitive user experiences with React and engineer reliable backend 
+                services using Java Spring Boot and Python.
+              </Typography>
+
+              <Typography sx={{ mt: 2, opacity: 0.9 }}>
+                Currently pursuing an MTech in AI & ML, I actively apply emerging 
+                technologies to develop production-ready systems. I focus on 
+                performance, automation, and maintainable architectures in 
+                cloud-first environments.
+              </Typography>
+
+              <Typography sx={{ mt: 2, opacity: 0.9 }}>
+                Passionate about continuous learning, I strive to deliver 
+                scalable solutions that reduce operational overhead and drive 
+                measurable business impact.
+              </Typography>
+            </Paper>
+
+            {/* Stats */}
+            <Box
+              sx={{
+                display: "flex",
+                gap: 6,
+                mt: 6
+              }}
+            >
+              <Box>
+                <Typography variant="h5" fontWeight={700}>
+                  3+
+                </Typography>
+                <Typography variant="caption" sx={{ opacity: 0.6 }}>
+                  YEARS EXPERIENCE
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography variant="h5" fontWeight={700}>
+                  20+
+                </Typography>
+                <Typography variant="caption" sx={{ opacity: 0.6 }}>
+                  PROJECTS BUILT
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography variant="h5" fontWeight={700}>
+                  10+
+                </Typography>
+                <Typography variant="caption" sx={{ opacity: 0.6 }}>
+                  TECHNOLOGIES
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+
+          {/* RIGHT SIDE IMAGE */}
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                borderRadius: 3,
+                overflow: "hidden",
+                border: "1px solid rgba(255,46,46,0.2)"
+              }}
+            >
+              <Box
+                component="img"
+                src="/profile.jpg"  // Put your image inside public/
+                alt="Profile"
+                sx={{
+                  width: "100%",
+                  display: "block",
+                  filter: "grayscale(100%) contrast(110%)"
+                }}
+              />
+            </Box>
+          </Grid>
+
+        </Grid>
+      </motion.div>
+    </Container>
   );
-};
-
-export default SectionWrapper(About, "about");
+}

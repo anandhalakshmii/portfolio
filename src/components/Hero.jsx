@@ -1,55 +1,39 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { styles } from '../style'
-import { ComputersCanvas } from './canvas'
+import { Container, Typography, Button } from "@mui/material";
+import { motion } from "framer-motion";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <>
-    <section className={`relative w-full h-screen mx-auto hidden sm:block`}>
-      <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+    <Container sx={{ mt: 20, textAlign: "center" }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
       >
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
+        <Typography
+          variant="h2"
+          fontWeight={800}
+          sx={{
+            background: "linear-gradient(90deg,#ff2e2e,#ff6b6b)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}
+        >
+          Crafting Digital Masterpieces
+        </Typography>
 
-        <div>
-          <h2 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Anandhalakshmi</span>
-          </h2>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I'm a full stack developer <br className='sm:block hidden' />
-            with a passion for creating seamless, user centric tech solutions.
-          </p>
-        </div>
-      </div>
-      <ComputersCanvas />
-      
-    </section>
-    <section className={`relative w-full h-[17rem] mx-auto block sm:block md:hidden lg:hidden xl:hidden`}>
-    <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-    <div className='flex flex-col justify-center items-center mt-3'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
+        <Typography variant="h5" sx={{ mt: 2 }}>
+          Anandhalakshmi — Full Stack Engineer
+        </Typography>
 
-        <div>
-          <h4 style = {{fontSize: '30px'}} className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Anandhalakshmi</span>
-          </h4>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I'm a full stack developer <br className='sm:block hidden' />
-            with a passion for creating seamless, user centric tech solutions.
-          </p>
-        </div>
-      </div>
-    </section>
-    </>
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ mt: 4 }}
+          href="#projects"
+        >
+          View My Work
+        </Button>
+      </motion.div>
+    </Container>
   );
-};
-
-export default Hero
+}
