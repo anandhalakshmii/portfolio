@@ -5,6 +5,7 @@ const experiences = [
   {
     role: "Software Development Engineer 2",
     company: "Rocket (Formerly Mr.Cooper)",
+    duration:"April 2026 - Present",
     description: [
       "Driving development of Pyro Vault, a distributed system managing billions of mortgage records using agentic workflow orchestration",
       "Architected LLM orchestration pipelines using Temporal, Apache Kafka and Redis queues, enabling scalable, asynchronous AI-driven document processing",
@@ -15,7 +16,7 @@ const experiences = [
   {
     role: "Software Development Engineer 1",
     company: "Mr. Cooper",
-    duration: "Jul 2023 – Present",
+    duration: "Jul 2023 – March 2026",
     description: [
       "Core contributor to Pyro AI, an enterprise document intelligence platform built with React and Spring Boot for high-scale mortgage workflows.",
       "Engineered scalable microservices using Java & Spring Boot on GCP.",

@@ -22,7 +22,7 @@ export default function Hero() {
         </Typography>
 
         <Typography variant="h5" sx={{ mt: 2 }}>
-          Anandhalakshmi — Full Stack Engineer
+          Anandhalakshmi — Full Stack AI Engineer
         </Typography>
 
         <Button
