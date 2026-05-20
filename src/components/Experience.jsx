@@ -3,12 +3,24 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Software Development Engineer",
+    role: "Software Development Engineer 2",
+    company: "Rocket (Formerly Mr.Cooper)",
+    description: [
+      "Driving development of Pyro Vault, a distributed system managing billions of mortgage records using agentic workflow orchestration",
+      "Architected LLM orchestration pipelines using Temporal, Apache Kafka and Redis queues, enabling scalable, asynchronous AI-driven document processing",
+      "Designed resilient event-driven workflows with retry strategies, failure isolation, and queue-based load leveling to ensure reliability of long-running AI processes",
+      "Integrated LLM services into backend decision systems, improving document validation accuracy and reducing manual effort."
+    ]
+  },
+  {
+    role: "Software Development Engineer 1",
     company: "Mr. Cooper",
     duration: "Jul 2023 – Present",
     description: [
+      "Core contributor to Pyro AI, an enterprise document intelligence platform built with React and Spring Boot for high-scale mortgage workflows.",
       "Engineered scalable microservices using Java & Spring Boot on GCP.",
-      "Redesigned backend using Event-Driven Architecture eliminating timeout failures.",
+      "Co-developed AI Guardian, a secure AI validation platform to govern LLM usage across business workfl ows where I built validation pipelines to verify and score LLM outputs, improving reliability of AI-driven decisions. Enabled compliance and responsible AI adoption by introducing guardrails and monitoring mechanisms.",
+      "Redesigned backend using Event-Driven Architecture eliminating timeout failures for an auditing application.",
       "Reduced manual workflows by 30% through backend automation."
     ]
   },

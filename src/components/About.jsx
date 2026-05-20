@@ -50,14 +50,15 @@ export default function About() {
               }}
             >
               <Typography sx={{ opacity: 0.9 }}>
-                I am a Full Stack Developer with 3+ years of experience delivering 
+                I am a Full Stack Developer with 3.5 + years of experience delivering 
                 scalable, cloud-integrated web applications end to end. I build 
                 intuitive user experiences with React and engineer reliable backend 
                 services using Java Spring Boot and Python.
               </Typography>
 
               <Typography sx={{ mt: 2, opacity: 0.9 }}>
-                Currently pursuing an MTech in AI & ML, I actively apply emerging 
+                Currently I'm pursuing an M.Tech in Artificial Intelligence & Machine Learning (WILP) 
+                at Birla Institute of Technology and Science, Pilani. I actively apply emerging 
                 technologies to develop production-ready systems. I focus on 
                 performance, automation, and maintainable architectures in 
                 cloud-first environments.
